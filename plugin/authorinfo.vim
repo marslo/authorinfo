@@ -1,17 +1,18 @@
 "=============================================================================
 "     FileName: authorinfo.vim
-"         Desc: 
+"         Desc:
 "       Author: dantezhu
 "        Email: zny2008@gmail.com
 "     HomePage: http://www.vimer.cn
 "      Created: 2012-10-18 10:59:43
 "      Version: 1.7
-"   LastChange: 2012-10-19 13:05:36
-"      History: 
+"   LastChange: 2020-09-27 22:02:23
+"      History:
 "               1.0 | dantezhu | support bash's #!xxx
 "               1.1 | dantezhu | fix bug for NerdComment's <leader>
 "               1.6 | dantezhu | add created
 "               1.7 | dantezhu | add history init
+"               1.8 | marslo | update the author format
 "=============================================================================
 
 if exists('g:loaded_authorinfo')
@@ -121,26 +122,15 @@ function s:AddTitle()
     let firstLine = line('.')
     call setline('.',noTypeChar.'=============================================================================')
     normal o
-    call setline('.',noTypeChar.preChar.'     FileName: '.expand("%:t"))
+    call setline('.',noTypeChar.preChar.'     FileName : '.expand("%:t"))
     normal o
-    call setline('.',noTypeChar.preChar.'         Desc: ')
-    let gotoLn = line('.')
+    call setline('.',noTypeChar.preChar.'       Author : '.g:vimrc_email)
     normal o
-    call setline('.',noTypeChar.preChar.'       Author: '.g:vimrc_author)
+    call setline('.',noTypeChar.preChar.'     HomePage : '.g:vimrc_homepage)
     normal o
-    call setline('.',noTypeChar.preChar.'        Email: '.g:vimrc_email)
+    call setline('.',noTypeChar.preChar.'      Created : '.strftime("%Y-%m-%d %H:%M:%S"))
     normal o
-    call setline('.',noTypeChar.preChar.'     HomePage: '.g:vimrc_homepage)
-    normal o
-    call setline('.',noTypeChar.preChar.'      Created: '.strftime("%Y-%m-%d %H:%M:%S"))
-    normal o
-    call setline('.',noTypeChar.preChar.'      Version: 0.0.1')
-    normal o
-    call setline('.',noTypeChar.preChar.'   LastChange: '.strftime("%Y-%m-%d %H:%M:%S"))
-    normal o
-    call setline('.',noTypeChar.preChar.'      History:')
-    normal o
-    call setline('.',noTypeChar.preChar.'               0.0.1 | '.g:vimrc_author. ' | init')
+    call setline('.',noTypeChar.preChar.'   LastChange : '.strftime("%Y-%m-%d %H:%M:%S"))
     normal o
     call setline('.',noTypeChar.'=============================================================================')
     let lastLine = line('.')
