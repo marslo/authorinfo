@@ -6,13 +6,12 @@
 "     HomePage: http://www.vimer.cn
 "      Created: 2012-10-18 10:59:43
 "      Version: 1.7
-"   LastChange: 2020-09-27 22:02:23
+"   LastChange: 2020-10-20 21:49:25
 "      History:
 "               1.0 | dantezhu | support bash's #!xxx
 "               1.1 | dantezhu | fix bug for NerdComment's <leader>
 "               1.6 | dantezhu | add created
 "               1.7 | dantezhu | add history init
-"               1.8 | marslo | update the author format
 "=============================================================================
 
 if exists('g:loaded_authorinfo')
@@ -126,8 +125,6 @@ function s:AddTitle()
     normal o
     call setline('.',noTypeChar.preChar.'       Author : '.g:vimrc_email)
     normal o
-    call setline('.',noTypeChar.preChar.'     HomePage : '.g:vimrc_homepage)
-    normal o
     call setline('.',noTypeChar.preChar.'      Created : '.strftime("%Y-%m-%d %H:%M:%S"))
     normal o
     call setline('.',noTypeChar.preChar.'   LastChange : '.strftime("%Y-%m-%d %H:%M:%S"))
@@ -155,12 +152,12 @@ function s:TitleDet()
     "默认为添加
     while n < 20
         let line = getline(n)
-        if line =~ '^.*FileName:\S*.*$'
+        if line =~ '^.*FileName\s*:\S*.*$'
             let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.expand("%:t"),'g')
             call setline(n,newline)
             let updated = 1
         endif
-        if line =~ '^.*LastChange:\S*.*$'
+        if line =~ '^.*LastChange\s*:\S*.*$'
             let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.strftime("%Y-%m-%d %H:%M:%S"),'g')
             call setline(n,newline)
             let updated = 1
