@@ -39,8 +39,8 @@ function s:DetectFirstLine()
     "跳转到指定区域的第一行，开始操作
     exe 'normal '.1.'G'
     let arrData = [
-                \['sh',['^#!.*$']],
-                \['python',['^#!.*$','^#.*coding:.*$']],
+                \['sh',['^#!.*$','^#\s*shellcheck\s.*$','^#\s*vint:.*$']],
+                \['python',['^#!.*$','^#.*coding:.*$','^#\s*pylint:.*$','^#\s*type:\s*ignore.*$']],
                 \['php',['^<?.*']]
                 \]
     let oldNum = line('.')
@@ -141,6 +141,7 @@ function s:AddTitle()
         exe 'normal '.firstLine.'Gv'.lastLine.'G'.s:t_mapleader.'cl'
     endif
 
+    let gotoLn = firstLine
     exe 'normal '.gotoLn.'G'
     startinsert!
     echohl WarningMsg | echo "Succ to add the copyright." | echohl None
