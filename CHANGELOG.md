@@ -1,3 +1,15 @@
+## [2.1.0](https://github.com/marslo/authorinfo/compare/v2.0.0...v2.1.0) (2026-05-14)
+
+### Features
+
+* feat: creation timestamp will no be changed in update stage
+  - refactored `s:UpdateAuthorInfo` to use buffer APIs (setline/append) instead of `normal` commands
+  - fixed "File changed since reading it" warning in diff mode
+  - optimized `system()` calls to only trigger on new file creation
+  - added dynamic support for `g:vimrc_author` and `g:vimrc_email`
+  
+  Signed-off-by: marslo <marslo.jiao@gmail.com>
+
 ## [2.0.0](https://github.com/marslo/authorinfo/compare/v1.0.0...v2.0.0) (2026-05-14)
 
 ### ⚠ BREAKING CHANGES
