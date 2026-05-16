@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/marslo/authorinfo/compare/v2.1.0...v2.1.1) (2026-05-16)
+
+### Others
+
+* chore: add successful or failure message output, checked via `VerifyLastChange()`
+  Signed-off-by: marslo <marslo.jiao@gmail.com>
+
 ## [2.1.0](https://github.com/marslo/authorinfo/compare/v2.0.0...v2.1.0) (2026-05-14)
 
 ### Features
